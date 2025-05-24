@@ -1,93 +1,97 @@
 # Client Lister
 
-![Logo](src/assets/icon.ico)
+<div align="center">
+  <img src="src/assets/icon.ico" alt="Client Lister Logo" width="200"/>
+</div>
 
-> **Aplicativo moderno para listar e gerenciar clientes IPTV**
+## 📋 Sobre o Projeto
 
----
+Client Lister é uma aplicação desktop desenvolvida com Electron para gerenciamento e monitoramento de clientes IPTV. O projeto foi criado para facilitar o gerenciamento de múltiplos clientes, oferecendo uma interface moderna e intuitiva.
+
+
+### 🛠️ Tecnologias Utilizadas
+- Electron 28.1.0
+- Node.js 18.x
+- HTML5/CSS3
+- JavaScript (ES6+)
+- NSIS (Instalador Windows)
+
+## 📦 Instalação
+
+### Requisitos
+- Windows 10 ou superior
+- Node.js 18.x ou superior
+- npm 8.x ou superior
+
 
 ## 🚀 Funcionalidades
-- Listagem e gerenciamento de clientes
-- Suporte a múltiplos idiomas (pasta `src/translations`)
-- Atualização automática
-- Notificações
-- Atalhos personalizados
-- Instalação fácil (NSIS)
 
----
+### Principais Recursos
+- **Gerenciamento de Clientes**
+  - Lista completa de clientes
+  - Filtros e busca avançada
+  - Status em tempo real
+  - Histórico de conexões
 
-## 📁 Estrutura de Pastas
+- **Interface Moderna**
+  - Design responsivo
+  - Tema claro/escuro
+  - Atalhos personalizáveis
+  - Notificações em tempo real
+
+- **Segurança**
+  - Criptografia de dados
+  - Backup automático
+  - Logs detalhados
+  - Proteção contra ataques
+
+- **Internacionalização**
+  - Suporte a múltiplos idiomas
+  - Tradução automática
+  - Formatação regional
+
+
+### Configurações do Build
+- Instalador NSIS personalizado
+- Atualizações automáticas
+- Ícones e recursos personalizados
+- Configurações de segurança
+
+## 💻 Desenvolvimento
+
+### Estrutura do Projeto
 ```
-├── src
-│   ├── main         # Código principal (Electron)
-│   ├── renderer     # Código de renderização
-│   ├── styles       # CSS
-│   ├── assets       # Imagens, ícones, etc
-│   ├── translations # Arquivos de tradução
-│   ├── utils        # Utilitários JS
-│   └── installer    # Instalador customizado
-├── public           # HTML principal
-├── scripts          # Scripts de build e organização
-├── data             # Dados, combos, hits
-├── dist             # Saída do build
-├── node_modules     # Dependências
-├── .gitignore       # Ignora arquivos desnecessários
-├── package.json     # Configuração do projeto
-├── organize.js      # Script para organizar a estrutura
-└── README.md        # Este arquivo
-```
-
----
-
-## 🛠️ Como rodar localmente
-```bash
-# Instale as dependências
-npm install
-
-# Organize a estrutura (opcional, mas recomendado)
-npm run organize
-
-# Rode o app em modo dev
-yarn start # ou npm start
-```
-
----
-
-## 🏗️ Como gerar o instalador (build)
-```bash
-# Gera o instalador para Windows
-npm run build
-
-# O instalador estará em /dist
+├── src/
+│   ├── main/        # Processo principal
+│   ├── renderer/    # Interface do usuário
+│   ├── styles/      # Estilos CSS
+│   ├── assets/      # Recursos estáticos
+│   ├── translations/# Arquivos de idioma
+│   ├── utils/       # Utilitários
+│   └── installer/   # Configurações do instalador
+├── public/          # Arquivos públicos
+├── scripts/         # Scripts de build
+└── data/           # Dados da aplicação
 ```
 
----
+## 💰 Doação
 
-## ☁️ Como subir para o GitHub (deploy)
-1. Crie um repositório no GitHub
-2. No terminal, rode:
-```bash
-git init
-git add .
-git commit -m "Primeiro commit"
-git branch -M main
-git remote add origin https://github.com/SEU_USUARIO/SEU_REPO.git
-git push -u origin main
+Se você gostou do projeto e quer ajudar no desenvolvimento, considere fazer uma doação:
+
+### PIX
 ```
-3. Pronto! Seu projeto estará online.
+Chave PIX: seu-pix@email.com
+```
 
----
+## 📝 Licença
 
-## 💡 Dicas
-- Sempre rode `npm run organize` após adicionar arquivos soltos.
-- Para adicionar traduções, coloque arquivos em `src/translations`.
-- O build do Electron está configurado para Windows, mas pode ser adaptado para Mac/Linux.
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
----
+## 📞 Suporte
 
-## 📃 Licença
-MIT
+- **Discord**: [Link do Servidor](https://discord.gg/seu-servidor)
+- **Telegram**: [@seu_usuario](https://t.me/seu_usuario)
 
----
-
-Feito com 💙 por [Seu Nome] 
+<div align="center">
+  Feito com 💙 por [Seu Nome]
+</div> 
