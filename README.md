@@ -78,19 +78,14 @@ Client Lister é uma aplicação desktop desenvolvida com Electron para gerencia
 
 Se você gostou do projeto e quer ajudar no desenvolvimento, considere fazer uma doação:
 
-### PIX
-```
-Chave PIX: seu-pix@email.com
-```
-
 ## 📝 Licença
 
 Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
 ## 📞 Suporte
 
-- **Discord**: [Link do Servidor](https://discord.gg/seu-servidor)
-- **Telegram**: [@seu_usuario](https://t.me/seu_usuario)
+- **Discord**: [@type.xzy]
+- **Telegram**: [@typexzy](https://t.me/typexzy)
 
 <div align="center">
   Feito com 💙 por [Seu Nome]
