@@ -88,5 +88,5 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 - **Telegram**: [@typexzy](https://t.me/typexzy)
 
 <div align="center">
-  Feito com 💙 por [Seu Nome]
+  Feito com 💙 por [Type]
 </div> 
