@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instalador - Client Lister</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: #fff;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .header p {
+            color: #888;
+            font-size: 14px;
+        }
+
+        .content {
+            flex: 1;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .path-selector {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 8px;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .path-input {
+            flex: 1;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            color: #fff;
+            border-radius: 4px;
+        }
+
+        .browse-btn {
+            background: #0078d4;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .browse-btn:hover {
+            background: #106ebe;
+        }
+
+        .progress-container {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .progress {
+            width: 0%;
+            height: 100%;
+            background: #0078d4;
+            transition: width 0.3s ease;
+        }
+
+        .progress-text {
+            margin-top: 10px;
+            text-align: center;
+            color: #888;
+            font-size: 14px;
+        }
+
+        .install-btn {
+            background: #0078d4;
+            color: #fff;
+            border: none;
+            padding: 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+            width: 100%;
+        }
+
+        .install-btn:hover {
+            background: #106ebe;
+        }
+
+        .install-btn:disabled {
+            background: #555;
+            cursor: not-allowed;
+        }
+
+        .footer {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            text-align: center;
+            font-size: 12px;
+            color: #888;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Client Lister</h1>
+        <p>Instalador</p>
+    </div>
+
+    <div class="content">
+        <div class="path-selector">
+            <input type="text" class="path-input" id="installPath" readonly placeholder="Selecione o diretório de instalação">
+            <button class="browse-btn" id="browseBtn">Procurar</button>
+        </div>
+
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div class="progress" id="progressBar"></div>
+            </div>
+            <div class="progress-text" id="progressText">Aguardando início da instalação...</div>
+        </div>
+
+        <button class="install-btn" id="installBtn" disabled>Instalar</button>
+    </div>
+
+    <div class="footer">
+        © 2024 Client Lister - Todos os direitos reservados
+    </div>
+
+    <script>
+        const { ipcRenderer } = require('electron');
+
+        const installPath = document.getElementById('installPath');
+        const browseBtn = document.getElementById('browseBtn');
+        const installBtn = document.getElementById('installBtn');
+        const progressBar = document.getElementById('progressBar');
+        const progressText = document.getElementById('progressText');
+
+        browseBtn.addEventListener('click', () => {
+            ipcRenderer.send('select-install-path');
+        });
+
+        ipcRenderer.on('install-path-selected', (event, path) => {
+            installPath.value = path;
+            installBtn.disabled = false;
+        });
+
+        installBtn.addEventListener('click', () => {
+            installBtn.disabled = true;
+            browseBtn.disabled = true;
+            ipcRenderer.send('start-install', installPath.value);
+        });
+
+        ipcRenderer.on('install-progress', (event, progress) => {
+            progressBar.style.width = `${progress}%`;
+            progressText.textContent = `Instalando... ${progress}%`;
+        });
+
+        ipcRenderer.on('install-complete', (event, success) => {
+            if (success) {
+                progressText.textContent = 'Instalação concluída com sucesso!';
+                installBtn.textContent = 'Concluir';
+                installBtn.disabled = false;
+                installBtn.addEventListener('click', () => {
+                    window.close();
+                });
+            } else {
+                progressText.textContent = 'Erro durante a instalação. Tente novamente.';
+                installBtn.disabled = false;
+                browseBtn.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html> 

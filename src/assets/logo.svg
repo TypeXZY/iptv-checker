@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <!-- Definições de gradientes para dar efeito 3D -->
+        <linearGradient id="grad-dark" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#1a1a1a"/>
+            <stop offset="100%" stop-color="#2d2d2d"/>
+        </linearGradient>
+        <linearGradient id="grad-light" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#b0b0b0"/>
+            <stop offset="100%" stop-color="#ffffff"/>
+        </linearGradient>
+         <linearGradient id="grad-accent" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#64b5f6"/>
+            <stop offset="100%" stop-color="#2196f3"/>
+        </linearGradient>
+    </defs>
+
+    <!-- Grupo principal centralizado e escalado -->
+    <g transform="translate(256, 256) scale(2.5)">
+        <!-- Partes da forma geométrica abstrata -->
+        <!-- Base inferior escura -->
+        <path d="M -100 50 L 100 50 L 50 100 L -50 100 Z" fill="url(#grad-dark)"/>
+
+        <!-- Lado esquerdo escuro -->
+        <path d="M -100 50 L -150 0 L -50 -100 L 0 -50 Z" fill="url(#grad-dark)"/>
+
+        <!-- Lado direito claro -->
+        <path d="M 100 50 L 150 0 L 50 -100 L 0 -50 Z" fill="url(#grad-light)"/>
+
+        <!-- Parte superior central com gradiente de destaque -->
+        <path d="M -50 -100 L 50 -100 L 0 -50 Z" fill="url(#grad-accent)"/>
+
+        <!-- Borda frontal em destaque -->
+        <path d="M -100 50 L 0 -50 L 100 50 Z" fill="none" stroke="url(#grad-accent)" stroke-width="5" stroke-linejoin="round"/>
+    </g>
+</svg> 

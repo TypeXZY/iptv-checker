@@ -1,0 +1,64 @@
+{
+  "name": "client-lister",
+  "version": "1.0.0",
+  "description": "Aplicativo para listar e gerenciar clientes",
+  "main": "src/main/main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "node scripts/build.js",
+    "package": "electron-builder",
+    "postinstall": "electron-builder install-app-deps",
+    "organize": "node organize.js"
+  },
+  "keywords": [
+    "iptv",
+    "scanner",
+    "m3u"
+  ],
+  "author": "Seu Nome",
+  "license": "MIT",
+  "dependencies": {
+    "@electron/remote": "^2.0.12",
+    "axios": "^1.6.7",
+    "cloudflare-bypasser": "^0.0.3",
+    "electron-store": "^8.1.0",
+    "electron-updater": "^6.1.7",
+    "flag-icons": "^7.0.0",
+    "moment": "^2.30.1",
+    "node-notifier": "^10.0.1"
+  },
+  "devDependencies": {
+    "electron": "^28.1.0",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.clientlister.app",
+    "productName": "Client Lister",
+    "copyright": "Copyright © 2024",
+    "directories": {
+      "output": "dist",
+      "buildResources": "src/assets"
+    },
+    "files": [
+      "src/**/*",
+      "public/**/*",
+      "scripts/**/*",
+      "data/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "src/assets/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Client Lister"
+    },
+    "mac": {
+      "target": []
+    }
+  }
+}

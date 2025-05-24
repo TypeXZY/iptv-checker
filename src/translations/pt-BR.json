@@ -1,0 +1,88 @@
+{
+    "app": {
+        "name": "Client Lister",
+        "version": "Versão",
+        "about": "Sobre",
+        "settings": "Configurações",
+        "exit": "Sair"
+    },
+    "scan": {
+        "title": "Scanner",
+        "start": "Iniciar Scan",
+        "stop": "Parar Scan",
+        "server": "Servidor",
+        "comboFile": "Arquivo Combo",
+        "numBots": "Número de Bots",
+        "attackType": "Tipo de Ataque",
+        "categories": "Categorias",
+        "status": "Status",
+        "progress": "Progresso",
+        "hits": "Hits",
+        "cpm": "CPM",
+        "duration": "Duração"
+    },
+    "hits": {
+        "title": "Hits",
+        "search": "Buscar",
+        "sort": "Ordenar por",
+        "newest": "Mais Recentes",
+        "oldest": "Mais Antigos",
+        "server": "Servidor",
+        "export": "Exportar",
+        "share": "Compartilhar",
+        "delete": "Excluir",
+        "noHits": "Nenhum hit encontrado"
+    },
+    "settings": {
+        "title": "Configurações",
+        "general": "Geral",
+        "appearance": "Aparência",
+        "performance": "Performance",
+        "notifications": "Notificações",
+        "language": "Idioma",
+        "theme": "Tema",
+        "save": "Salvar",
+        "reset": "Resetar"
+    },
+    "notifications": {
+        "hitFound": "Hit Encontrado!",
+        "scanComplete": "Scan Concluído!",
+        "error": "Erro!",
+        "warning": "Atenção!",
+        "updateAvailable": "Nova Versão Disponível!"
+    },
+    "attackTypes": {
+        "simple": "Ataque Simples",
+        "ultra": "Ataque Ultra",
+        "god": "Ataque God",
+        "demon": "Ataque Demon",
+        "ssjblue": "Ataque SsjBlue"
+    },
+    "errors": {
+        "fileNotFound": "Arquivo não encontrado",
+        "invalidServer": "Servidor inválido",
+        "invalidCombo": "Formato de combo inválido",
+        "connectionError": "Erro de conexão",
+        "proxyError": "Erro de proxy",
+        "unknownError": "Erro desconhecido"
+    },
+    "messages": {
+        "scanning": "Escaneando...",
+        "paused": "Pausado",
+        "completed": "Concluído",
+        "stopped": "Parado",
+        "saving": "Salvando...",
+        "loading": "Carregando...",
+        "exporting": "Exportando...",
+        "importing": "Importando..."
+    },
+    "tooltips": {
+        "startScan": "Iniciar o scan",
+        "stopScan": "Parar o scan",
+        "exportHits": "Exportar hits",
+        "shareHit": "Compartilhar hit",
+        "deleteHit": "Excluir hit",
+        "settings": "Configurações",
+        "about": "Sobre o aplicativo"
+    }
+} 

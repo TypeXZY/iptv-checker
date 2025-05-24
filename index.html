@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Lister</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Barra de título -->
+        <div class="title-bar">
+            <div class="title-bar-drag">
+                <img src="assets/logo.svg" alt="Logo" class="app-icon">
+                <span>Client Lister</span>
+            </div>
+            <div class="window-controls">
+                <button id="minimize-button" class="window-control">
+                    <i class="fas fa-minus"></i>
+                </button>
+                <button id="maximize-button" class="window-control">
+                    <i class="fas fa-expand"></i>
+                </button>
+                <button id="close-button" class="window-control">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Área de conteúdo principal (Sidebar + Páginas) -->
+        <div class="content-area">
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <div class="nav-buttons">
+                    <button class="nav-button active" data-page="scan">
+                        <i class="fas fa-search"></i>
+                        <span>Scanner</span>
+                    </button>
+                    <button class="nav-button" data-page="hits">
+                        <i class="fas fa-trophy"></i>
+                        <span>Hits</span>
+                    </button>
+                    <button class="nav-button" data-page="settings">
+                        <i class="fas fa-cog"></i>
+                        <span>Configurações</span>
+                    </button>
+                    <button class="nav-button" data-page="about">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Sobre</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Conteúdo das Páginas -->
+            <div class="main-content">
+                <!-- Página de Scanner -->
+                <div id="scan-page" class="page active">
+                    <div class="scan-container">
+                        <!-- Seção de Configuração do Scanner -->
+                        <div class="scan-config">
+                            <div class="scan-header">
+                                <h2><i class="fas fa-search" style="color: white;"></i> Scanner</h2>
+                            </div>
+
+                            <div class="scan-form">
+                                <div class="form-group">
+                                    <label for="server">
+                                        <i class="fas fa-server"></i>
+                                        Servidor
+                                    </label>
+                                    <input type="text" id="server" placeholder="exemplo.com:porta">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="combo-file">
+                                        <i class="fas fa-file-alt"></i>
+                                        Arquivo Combo
+                                    </label>
+                                    <input type="file" id="combo-file" accept=".txt">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="num-bots">
+                                        <i class="fas fa-robot"></i>
+                                        Número de Bots
+                                    </label>
+                                    <input type="number" id="num-bots" min="1" max="100" value="15">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>
+                                        <i class="fas fa-bolt"></i>
+                                        Tipos
+                                    </label>
+                                    <div class="attack-types">
+                                        <label class="attack-type">
+                                            <input type="radio" name="attack-type" value="1" checked>
+                                            <span class="attack-badge simple">Speedster</span>
+                                        </label>
+                                        <label class="attack-type">
+                                            <input type="radio" name="attack-type" value="2">
+                                            <span class="attack-badge ultra">Powerhouse</span>
+                                        </label>
+                                        <label class="attack-type">
+                                            <input type="radio" name="attack-type" value="3">
+                                            <span class="attack-badge god">Divinity</span>
+                                        </label>
+                                        <label class="attack-type">
+                                            <input type="radio" name="attack-type" value="4">
+                                            <span class="attack-badge demon">Abyss</span>
+                                        </label>
+                                        <label class="attack-type">
+                                            <input type="radio" name="attack-type" value="5">
+                                            <span class="attack-badge ssjblue">Apex Saiyan</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>
+                                        <i class="fas fa-list"></i>
+                                        Categorias
+                                    </label>
+                                    <div class="categories-options">
+                                        <label class="category-option">
+                                            <input type="radio" name="categories" value="0" checked>
+                                            <span>Sem Categorias</span>
+                                        </label>
+                                        <label class="category-option">
+                                            <input type="radio" name="categories" value="1">
+                                            <span>Com Categorias</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="nickname">
+                                        <i class="fas fa-user"></i>
+                                        Seu Nickname
+                                    </label>
+                                    <input type="text" id="nickname" placeholder="Seu nome">
+                                </div>
+
+                                <button id="start-scan" class="start-button">
+                                    <i class="fas fa-play"></i>
+                                    Iniciar Scan
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Seção de Status e Resultados do Scanner -->
+                        <div class="scan-status-results">
+                             <div class="scan-controls-status">
+                                 <!-- Estatísticas de Hits e CPM movidas para cá -->
+                                 <div class="scan-stats">
+                                     <div class="stat-item">
+                                         <i class="fas fa-trophy"></i>
+                                         <span>Hits: <span id="hits-count">0</span></span>
+                                     </div>
+                                     <div class="stat-item">
+                                         <i class="fas fa-tachometer-alt"></i>
+                                         <span>CPM: <span id="cpm-count">0</span></span>
+                                     </div>
+                                 </div>
+                                 <!-- A barra de progresso e o texto de progresso -->
+                                <div class="progress-container">
+                                    <div class="progress-bar" data-progress="0%"></div>
+                                    <span id="progress">0%</span>
+                                </div>
+                                 <!-- O botão de abortar -->
+                                 <button id="abort-scan" class="start-button" style="display: none;">
+                                     <i class="fas fa-stop"></i>
+                                     Abortar Scan
+                                 </button>
+                             </div>
+                             <!-- A lista de resultados (hits) -->
+                            <div id="results-list" class="results-list"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Página de Hits -->
+                <div id="hits-page" class="page">
+                    <div class="hits-container">
+                        <div class="hits-header">
+                            <h2><i class="fas fa-trophy" style="color: white;"></i> Hits Encontrados</h2>
+                            <div class="hits-controls">
+                                <div class="search-box">
+                                    <i class="fas fa-search"></i>
+                                    <input type="text" id="hits-search" placeholder="Buscar hits...">
+                                </div>
+                                <select id="hits-sort">
+                                    <option value="newest">Mais Recentes</option>
+                                    <option value="oldest">Mais Antigos</option>
+                                    <option value="server">Por Servidor</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div id="hits-list" class="hits-list"></div>
+                    </div>
+                </div>
+
+                <!-- Página de Configurações -->
+                <div id="settings-page" class="page">
+                    <div class="settings-container">
+                        <h2><i class="fas fa-cog" style="color: white;"></i> Configurações</h2>
+                        <div class="settings-section">
+                            <h3>Limpeza Automática de Hits</h3>
+                            <div class="form-group">
+                                <label for="autoclear-days">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    Manter hits por (dias):
+                                </label>
+                                <input type="number" id="autoclear-days" min="0" value="0">
+                                <small>0 = Não limpar automaticamente</small>
+                            </div>
+                        </div>
+                        <!-- Futuramente: Opções de Backup/Restauração -->
+                    </div>
+                </div>
+
+                <!-- Página Sobre -->
+                <div id="about-page" class="page">
+                    <div class="about-container">
+                        <h2><i class="fas fa-info-circle" style="color: white;"></i> Sobre</h2>
+                        <div class="about-content">
+                            <p><strong>Desenvolvedor:</strong> <span id="developer-name">Type</span></p>
+                            <p><strong>Versão:</strong> <span id="app-version"></span></p>
+                            <button id="check-update-button" class="primary popup-button">Verificar Atualizações</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup de Update -->
+    <div id="update-popup-overlay" class="popup-overlay">
+        <div class="popup">
+            <div class="popup-header">
+                <h3><i class="fas fa-download"></i> Nova Versão Disponível!</h3>
+                <button class="close-popup">&times;</button>
+            </div>
+            <div class="popup-body">
+                <p>Uma nova versão do Client Lister está disponível. Deseja atualizar agora?</p>
+            </div>
+            <div class="popup-footer">
+                <button id="update-later-button" class="popup-button secondary">Depois</button>
+                <button id="update-now-button" class="popup-button primary">Atualizar Agora</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup de Boas-vindas (será usado pelo sistema de tour agora) -->
+    <div id="welcome-popup-overlay" class="popup-overlay">
+        <div class="popup">
+            <!-- Conteúdo será preenchido pelo JS no tour -->
+        </div>
+    </div>
+
+    <!-- Overlay genérico para outros popups -->
+     <div class="popup-overlay" id="generic-popup-overlay"></div>
+
+    <script src="renderer.js"></script>
+</body>
+</html> 

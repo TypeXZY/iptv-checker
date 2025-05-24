@@ -1,0 +1,31 @@
+{
+  "appId": "com.clientlister.app",
+  "productName": "Client Lister",
+  "copyright": "Copyright © 2024",
+  "directories": {
+    "output": "C:\\projetos\\ClientLister\\dist",
+    "buildResources": "assets"
+  },
+  "files": [
+    "build/**/*",
+    "node_modules/**/*"
+  ],
+  "win": {
+    "target": [
+      {
+        "target": "nsis",
+        "arch": [
+          "x64"
+        ]
+      }
+    ],
+    "icon": "assets/icon.ico"
+  },
+  "nsis": {
+    "oneClick": false,
+    "allowToChangeInstallationDirectory": true,
+    "createDesktopShortcut": true,
+    "createStartMenuShortcut": true,
+    "shortcutName": "Client Lister"
+  }
+}
