@@ -1,7 +1,7 @@
 # Client Lister
 
 <div align="center">
-  <img src="src/assets/icon.ico" alt="Client Lister Logo" width="200"/>
+  <img src="https://i.imgur.com/Vn8Uisf.png" alt="Client Lister Logo" width="200"/>
 </div>
 
 ## 📋 Sobre o Projeto
